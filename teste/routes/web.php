@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Atuh;
 
 
 
@@ -9,11 +10,22 @@ Route::get('/', function () {
 });
 
 
-Route::get('produtos', 'App\Http\Controllers\MeuControlador@produtos');
+Route::get('produtos', function(){
+    return view('outras.produtos');
+})->name('produtos');
+Route::get('departamentos', function(){
+    return view('outras.departamentos');
+})->name('departamentos');
 Route::get('nome', 'App\Http\Controllers\MeuControlador@getNome');
 Route::get('idade', 'App\Http\Controllers\MeuControlador@getIdade');
 Route::get('multiplicar/{n1}/{n2}', 'App\Http\Controllers\MeuControlador@multiplicar');
+Route::get('opcoes/{opcao?}', function($opcao=null){
+    return view('outras.opcoes', compact(['opcao']));
+})->name('opcoes');
 
+Route::get('bootstrap', function() {
+    return view('outras.exemplo');
+});
 
 Route::resource('clientes', 'App\Http\Controllers\ClienteControlador');
 
@@ -92,3 +104,7 @@ Route::resource('clientes', 'App\Http\Controllers\ClienteControlador');
 
 
 
+
+//Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
