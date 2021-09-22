@@ -26,4 +26,9 @@ Route::get('/categorias/apagar/{id}', '\App\Http\Controllers\ControladorCategori
 Route::get('/categorias/editar/{id}', '\App\Http\Controllers\ControladorCategoria@edit');
 Route::post('/categorias/{id}', '\App\Http\Controllers\ControladorCategoria@update');
 
+Route::get('/novoCliente', '\App\Http\Controllers\ClienteControlador@create');
+Route::get('/clientes', '\App\Http\Controllers\ClienteControlador@index');
+Route::post('/clientes', '\App\Http\Controllers\ClienteControlador@store');
+
+
 
