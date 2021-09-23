@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/produtos', '\App\Http\Controllers\ControladorProduto@index');
+Route::get('/produtos', '\App\Http\Controllers\ControladorProduto@indexView');
 Route::get('/categorias', '\App\Http\Controllers\ControladorCategoria@index');
 Route::get('/categorias/novo', '\App\Http\Controllers\ControladorCategoria@create');
 
